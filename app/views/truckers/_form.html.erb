@@ -1,0 +1,20 @@
+<%= form_with(model: @trucker, local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :document %><br>
+    <%= form.text_field :document %>
+  </p>
+
+  <p>
+    <%= form.label :expiration %><br>
+    <%= form.date_field :expirationDate %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

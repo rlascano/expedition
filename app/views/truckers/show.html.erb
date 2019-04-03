@@ -1,0 +1,13 @@
+<h1>Detalles del Camionero</h1>
+<div>
+  <p><b>Nombre:</b> <%= @trucker.name %></p>
+  <p><b>Documento: </b> <%= @trucker.document %></p>
+  <p><b>Vigencia: </b> <%= @trucker.expirationDate.strftime('%d/%m/%Y') %></p>
+</div>
+<div>
+  <%= link_to "Volver", truckers_path %><br />
+  <%= link_to "Editar", edit_trucker_path(@trucker) %>
+  <%= link_to "Borrar", trucker_path(@trucker),
+      method: :delete,
+      data: {confirm: "¿Esta seguro?" } %>
+</div>

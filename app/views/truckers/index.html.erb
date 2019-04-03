@@ -1,0 +1,22 @@
+<h1>Listado de Camioneros</h1>
+<div>
+  <%= link_to 'Agregar', new_trucker_path %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Documento</th>
+      <th>Vigencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @truckers.each do |t| %>
+      <tr>
+        <td><%= link_to t.name, trucker_path(t.id) %></td>
+        <td><%= t.document %></td>
+        <td><%= t.expirationDate.strftime('%d/%m/%Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
