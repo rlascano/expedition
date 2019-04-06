@@ -43,6 +43,6 @@ class TruckersController < ApplicationController
   private
 
     def trucker_params
-      params.require(:trucker).permit(:name, :document, :expirationDate)
+      params.require(:trucker).permit(:name, :document, :carnet_expiration_date)
     end
 end

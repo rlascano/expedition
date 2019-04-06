@@ -2,7 +2,7 @@
 <div>
   <p><b>Nombre:</b> <%= @trucker.name %></p>
   <p><b>Documento: </b> <%= @trucker.document %></p>
-  <p><b>Vigencia: </b> <%= @trucker.expirationDate.strftime('%d/%m/%Y') %></p>
+  <p><b>Vigencia: </b> <%= @trucker.carnet_expiration_date.strftime('%d/%m/%Y') %></p>
 </div>
 <div>
   <%= link_to "Volver", truckers_path %><br />

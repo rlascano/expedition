@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to t.name, trucker_path(t.id) %></td>
         <td><%= t.document %></td>
-        <td><%= t.expirationDate.strftime('%d/%m/%Y') %></td>
+        <td><%= t.carnet_expiration_date.strftime('%d/%m/%Y') %></td>
       </tr>
     <% end %>
   </tbody>
