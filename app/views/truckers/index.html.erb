@@ -1,4 +1,4 @@
-<h1>Listado de Camioneros</h1>
+<h2>Listado de Camioneros</h2>
 <div>
   <%= link_to 'Agregar', new_trucker_path %>
 </div>
@@ -13,7 +13,7 @@
   <tbody>
     <% @truckers.each do |t| %>
       <tr>
-        <td><%= link_to t.name, trucker_path(t.id) %></td>
+        <td><%= link_to t.full_name, trucker_path(t.id) %></td>
         <td><%= t.document %></td>
         <td><%= t.carnet_expiration_date.strftime('%d/%m/%Y') %></td>
       </tr>

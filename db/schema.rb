@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_06_230404) do
+ActiveRecord::Schema.define(version: 2019_04_06_235737) do
 
   create_table "truckers", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
     t.string "document"
     t.date "carnet_expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
     t.index ["document"], name: "index_truckers_on_document", unique: true
   end
 
