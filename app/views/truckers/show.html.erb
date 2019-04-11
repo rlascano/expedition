@@ -1,13 +1,16 @@
-<h1>Detalles del Camionero</h1>
-<div>
-  <p><b>Nombre:</b> <%= @trucker.full_name %></p>
-  <p><b>Documento: </b> <%= @trucker.document %></p>
-  <p><b>Vigencia: </b> <%= @trucker.carnet_expiration_date.strftime('%d/%m/%Y') %></p>
-</div>
-<div>
-  <%= link_to "Volver", truckers_path %><br />
-  <%= link_to "Editar", edit_trucker_path(@trucker) %>
+<header>
+  <h2>Detalles del Camionero</h2>
+</header>
+
+<ul class="trucker-detail">
+  <li><b>Nombre:</b> <%= @trucker.full_name %></li>
+  <li><b>Documento: </b> <%= @trucker.document %></li>
+  <li><b>Vigencia: </b> <%= @trucker.carnet_expiration_date.strftime('%d/%m/%Y') %></li>
+</ul>
+<div class="links">
+  <%= link_to "Volver", truckers_path, class:'btn btn-default' %>
+  <%= link_to "Editar", edit_trucker_path(@trucker), class:'btn btn-default' %>
   <%= link_to "Borrar", trucker_path(@trucker),
       method: :delete,
-      data: {confirm: "¿Esta seguro?" } %>
+      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger' %>
 </div>

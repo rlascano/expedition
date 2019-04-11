@@ -1,13 +1,12 @@
-<h2>Listado de Camioneros</h2>
-<div>
-  <%= link_to 'Agregar', new_trucker_path %>
-</div>
+<header>
+  <h2>Listado de Camioneros</h2>
+</header>
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Documento</th>
-      <th>Vigencia</th>
+      <th>Vigencia Carnet</th>
     </tr>
   </thead>
   <tbody>
@@ -20,3 +19,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="links">
+  <%= link_to 'Agregar', new_trucker_path, class:'btn btn-default' %>
+</div>

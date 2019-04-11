@@ -1,9 +1,95 @@
-* , *::after, *::before {
-  margin: 0;
-  paddin: 0;
-}
+@import 'variables';
 
 .container {
   max-width: 970px;
   margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th , td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  backgorund-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: $primary-color;
+  color: white;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  color: $primary-color;
+  background: #fff;
+}
+
+.btn-default {
+  color: #FFF;
+  background-color: $primary-color;
+}
+
+.btn-danger {
+  color: #FFF;
+  background-color: red;
+}
+
+.links {
+  margin-top: 2rem;
+  width: 100%;
+  float: right;
+}
+
+input[type=text], input[type=date], select {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  margin: 0.5rem 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: $primary-color;
+  color: white;
+  padding: 0.9rem 1.2rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 1.25rem;
+}
+
+.trucker-detail li:not(:last-child) {
+  margin-bottom: 2rem;
 }
