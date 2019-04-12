@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'truckers#index'
+  root 'pages#index'
+  get 'pages/index'
+  get 'pages/files'
 
   resources :truckers
 end
