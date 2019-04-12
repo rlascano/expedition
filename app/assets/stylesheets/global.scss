@@ -1,8 +1,15 @@
 @import 'variables';
 
+body {
+  background-color: #EEE;
+}
+
 .container {
   max-width: 970px;
   margin: 0 auto;
+  background-color: #FFF;
+  padding: 2rem;
+  //height: 100vh;
 }
 
 table {
@@ -20,7 +27,7 @@ tr:nth-child(even){
 }
 
 tr:hover {
-  backgorund-color: #ddd;
+  background-color: #ddd;
 }
 
 th {
@@ -36,15 +43,20 @@ header {
 }
 
 .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  color: $primary-color;
-  background: #fff;
+  border-radius: 5px;
 }
 
 .btn-default {
+  color: $primary-color;
+  background-color: #FFF;
+  border: 1px solid $primary-color;
+}
+
+.btn-default:hover {
   color: #FFF;
   background-color: $primary-color;
 }
@@ -57,7 +69,6 @@ header {
 .links {
   margin-top: 2rem;
   width: 100%;
-  float: right;
 }
 
 input[type=text], input[type=date], select {
@@ -92,4 +103,22 @@ input[type=submit]:hover {
 
 .trucker-detail li:not(:last-child) {
   margin-bottom: 2rem;
+}
+
+//navbar
+nav {
+  height: 4rem;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+
+  a {
+    font-size: 1.5rem;
+    color:#FFF;
+    font-weight: bold;
+    height: 100%;
+    text-decoration: none;
+  }
 }
