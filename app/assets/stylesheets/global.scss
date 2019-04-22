@@ -122,3 +122,32 @@ nav {
 }
 
 //pages
+.panel {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  .panel-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 4rem;
+  }
+
+  .panel-text {
+    text-transform: uppercase;
+
+    a {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
+}
