@@ -1,4 +1,6 @@
 class Trucker < ApplicationRecord
+  default_scope {order(:last_name, :first_name)}
+
   validates :first_name, :last_name, :document, :carnet_expiration_date, presence: true
   validates :document, uniqueness: true
   validate :carnet_expiration_date_vigence
