@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cuit_number: MyString
+
+two:
+  name: MyString
+  cuit_number: MyString

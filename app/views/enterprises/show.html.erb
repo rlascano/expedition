@@ -1,0 +1,15 @@
+<header>
+  <h2>Detalles del Empresa</h2>
+</header>
+
+<ul class="enterprise-detail">
+  <li><b>Nombre:</b> <%= @enterprise.name %></li>
+  <li><b>Documento: </b> <%= @enterprise.cuit_number %></li>  
+</ul>
+<div class="links">
+  <%= link_to "Volver", enterprises_path, class:'btn btn-default' %>
+  <%= link_to "Editar", edit_enterprise_path(@enterprise), class:'btn btn-default' %>
+  <%= link_to "Borrar", enterprise_path(@enterprise),
+      method: :delete,
+      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger' %>
+</div>

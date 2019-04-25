@@ -1,0 +1,22 @@
+<header>
+  <h2>Listado de Empresas</h2>
+</header>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cuit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @enterprises.each do |e| %>
+      <tr>
+        <td><%= link_to e.name, enterprise_path(e.id) %></td>
+        <td><%= e.cuit_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="links">
+  <%= link_to 'Agregar', new_enterprise_path, class:'btn btn-default' %>
+</div>
