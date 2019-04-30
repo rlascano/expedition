@@ -1,6 +1,9 @@
 class Enterprise < ApplicationRecord
   default_scope { order(:name) }
 
+  has_one :address
+  accepts_nested_attributes_for :address
+
   validates :name, :cuit_number, presence: true
   validates :cuit_number, uniqueness: true
   validate :cuit_number_valid

@@ -4,7 +4,11 @@
 
 <ul class="enterprise-detail">
   <li><b>Nombre:</b> <%= @enterprise.name %></li>
-  <li><b>Cuit: </b> <%= @enterprise.cuit_number %></li>  
+  <li><b>Cuit: </b> <%= @enterprise.cuit_number %></li>
+  <li><b>Calle: </b> <%= @enterprise.address.street %></li>
+  <li><b>Ciudad: </b> <%= @enterprise.address.city %></li>
+  <li><b>Provincia: </b> <%= @enterprise.address.state %></li>
+  <li><b>Código Postal: </b> <%= @enterprise.address.postal_code %></li> 
 </ul>
 <div class="links">
   <%= link_to "Volver", enterprises_path, class:'btn btn-default' %>

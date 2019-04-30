@@ -45,6 +45,6 @@ class EnterprisesController < ApplicationController
   private
 
     def enterprise_params
-      params.require(:enterprise).permit(:name, :cuit_number)
+      params.require(:enterprise).permit(:name, :cuit_number, address_attributes: [:city, :street, :state, :postal_code])
     end
 end

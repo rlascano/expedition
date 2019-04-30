@@ -19,7 +19,21 @@
     <%= form.text_field :name %>
 
     <%= form.label :cuit_number %><br>
-    <%= form.text_field :cuit_number %>    
+    <%= form.text_field :cuit_number %>
+
+    <%= form.fields_for :address, Address.new do |form| %>
+      <%= form.label :street %><br>
+      <%= form.text_field :street %>
+
+      <%= form.label :city %><br>
+      <%= form.text_field :city %>
+
+      <%= form.label :state %><br>
+      <%= form.text_field :state %>
+
+      <%= form.label :postal_code %><br>
+      <%= form.text_field :postal_code %>
+    <% end %>
 
     <%= form.submit %>
 
