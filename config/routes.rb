@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/index'
   get 'enterprises/index'
   root 'pages#index'
   get 'pages/index'
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
 
   resources :truckers
   resources :enterprises
+  resources :categories
 end
