@@ -9,6 +9,7 @@ class EnterprisesController < ApplicationController
 
   def new
     @enterprise = Enterprise.new
+    @enterprise.build_address
   end
 
   def create
@@ -45,6 +46,6 @@ class EnterprisesController < ApplicationController
   private
 
     def enterprise_params
-      params.require(:enterprise).permit(:name, :cuit_number, address_attributes: [:city, :street, :state, :postal_code])
+      params.require(:enterprise).permit(:name, :cuit_number, address_attributes: [:id, :city, :street, :state, :postal_code])
     end
 end
