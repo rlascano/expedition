@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'enterprises/index'
   root 'pages#index'
   get 'pages/index'
   get 'pages/files'
@@ -8,4 +6,5 @@ Rails.application.routes.draw do
   resources :truckers
   resources :enterprises
   resources :categories
+  resources :products
 end
