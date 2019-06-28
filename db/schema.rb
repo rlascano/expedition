@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_000606) do
+ActiveRecord::Schema.define(version: 2019_06_28_230543) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 2019_05_01_000606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "carrier_id"
+    t.integer "trucker_id"
+    t.integer "product_id"
+    t.integer "tare"
+    t.integer "gross"
+    t.datetime "enter"
+    t.datetime "exit"
+    t.text "observations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carrier_id"], name: "index_tickets_on_carrier_id"
+    t.index ["client_id"], name: "index_tickets_on_client_id"
+    t.index ["product_id"], name: "index_tickets_on_product_id"
+    t.index ["trucker_id"], name: "index_tickets_on_trucker_id"
   end
 
   create_table "truckers", force: :cascade do |t|

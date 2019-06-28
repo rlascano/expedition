@@ -2,6 +2,7 @@ class Enterprise < ApplicationRecord
   default_scope { order(:name) }
 
   has_one :address
+  has_many :tickets
   accepts_nested_attributes_for :address
 
   validates :name, :cuit_number, presence: true
