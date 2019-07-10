@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_224357) do
+ActiveRecord::Schema.define(version: 2019_07_09_211852) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_07_05_224357) do
     t.datetime "updated_at", null: false
     t.integer "carrier_id"
     t.integer "client_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_tickets_on_category_id"
     t.index ["product_id"], name: "index_tickets_on_product_id"
     t.index ["trucker_id"], name: "index_tickets_on_trucker_id"
   end

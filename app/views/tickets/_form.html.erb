@@ -14,12 +14,17 @@
         </ul>
       </div>
     <% end %>
-
-    <%= form.collection_select(:client_id, Enterprise.all, :id, :name) %>
-    <%= form.collection_select(:product_id, Product.all, :id, :name) %>
-    <%= form.collection_select(:carrier_id, Enterprise.all, :id, :name) %>
-    <%= form.collection_select(:trucker_id, Trucker.all, :id, :full_name) %>
-
+    <%= form.label :client_id %><br />
+    <%= form.text_field :client_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)} %>
+    <%= form.label :category_id %><br />
+    <%= form.collection_select(:category_id, Category.all, :id, :name, include_blank: true) %>
+    <%= form.label :product_id %><br />
+    <%= form.grouped_collection_select(:product_id, Category.all, :products, :name, :id, :name, include_blank: true) %>
+    <%= form.label :carrier_id %><br />
+    <%= form.text_field :carrier_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)} %>
+    <%= form.label :trucker_id %><br />
+    <%= form.text_field :trucker_name, data: {autocomplete_source: Trucker.order(:last_name).map(&:full_name)} %>
+    
     <%= form.submit %>
 
   <% end %>

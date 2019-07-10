@@ -6,6 +6,7 @@
     <tr>
       <th>ID</th>
       <th>Cliente</th>
+      <th>Categoria</th>
       <th>Producto</th>
       <th>Transporte</th>
       <th>Chofer</th>
@@ -14,8 +15,9 @@
   <tbody>
     <% @tickets.each do |t| %>
       <tr>
-        <td><%= link_to t.id, enterprise_path(t.id) %></td>
+        <td><%= link_to t.id, ticket_path(t.id) %></td>
         <td><%= t.client.name %></td>
+        <td><%= t.category.name %></td>
         <td><%= t.product.name %></td>
         <td><%= t.carrier.name %></td>
         <td><%= t.trucker.full_name %></td>
