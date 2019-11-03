@@ -1,0 +1,14 @@
+header
+  h2 Detalles del Camionero
+
+ul.trucker-detail
+  li <b> Nombre: </b> #{@trucker.full_name}
+  li <b> Documento: </b> #{@trucker.document}
+  li <b> Vigencia: </b> #{@trucker.carnet_expiration_date.strftime('%d/%m/%Y')}
+
+div.links
+  =link_to "Volver", truckers_path, class:'btn btn-default'
+  =link_to "Editar", edit_trucker_path(@trucker), class:'btn btn-default'
+  =link_to "Borrar", trucker_path(@trucker),
+      method: :delete,
+      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'

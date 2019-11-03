@@ -1,0 +1,18 @@
+header
+  h2 Listado de Camioneros
+
+table
+  thead
+    tr
+      th Nombre
+      th Documento
+      th Vigencia Carnet
+  tbody
+    -@truckers.each do |t|
+      tr
+        td = link_to t.full_name, trucker_path(t.id)
+        td = t.document
+        td = t.carnet_expiration_date.strftime('%d/%m/%Y')
+
+.links
+  = link_to 'Agregar', new_trucker_path, class:'btn btn-default'

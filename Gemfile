@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'jquery-ui-rails'
+gem 'slim'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

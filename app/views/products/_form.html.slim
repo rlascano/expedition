@@ -1,0 +1,19 @@
+.form
+  = form_with(model: @product, local: true) do |form|
+    - if @product.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@product.errors.count, "error")
+          |  prohibited this article from being saved:
+        ul
+          - @product.errors.full_messages.each do |msg|
+            li = msg
+    ul.flex-form
+      li
+        = form.label :category_id
+        = form.collection_select(:category_id, Category.all, :id, :name)
+      li
+        = form.label :name
+        = form.text_field :name
+      li
+        = form.submit

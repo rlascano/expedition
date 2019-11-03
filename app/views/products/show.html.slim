@@ -1,0 +1,13 @@
+header
+  h2 Detalles del Producto
+
+ul.trucker-detail
+  li <b>Categoria:</b> #{@product.category.name}
+  li <b>Nombre: </b> #{@product.name}
+
+.links
+  = link_to "Volver", products_path, class:'btn btn-default'
+  = link_to "Editar", edit_product_path(@product), class:'btn btn-default'
+  = link_to "Borrar", product_path(@product),
+      method: :delete,
+      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'

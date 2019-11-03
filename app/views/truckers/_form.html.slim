@@ -1,0 +1,26 @@
+.form
+  = form_with(model: @trucker, local: true) do |form|
+
+     -if @trucker.errors.any?
+       #error_explanation
+         h2
+          = pluralize(@trucker.errors.count, "error")
+          |  prohibited this article from being saved:
+         ul
+          - @trucker.errors.full_messages.each do |msg|
+            li = msg
+     ul.flex-form
+       li
+         = form.label :first_name
+         = form.text_field :first_name
+       li
+         = form.label :last_name
+         = form.text_field :last_name
+       li
+         = form.label :document
+         = form.text_field :document
+       li
+         = form.label :expiration
+         = form.date_field :carnet_expiration_date
+       li
+         = form.submit

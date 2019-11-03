@@ -1,0 +1,24 @@
+header
+  h2 Listado de Tickets
+table
+  thead
+    tr
+      th ID
+      th Cliente
+      th Categoria
+      th Producto
+      th Transporte
+      th Chofer
+
+  tbody
+    - @tickets.each do |t|
+      tr
+        td =link_to t.id, ticket_path(t.id)
+        td =t.client.name
+        td =t.category.name
+        td =t.product.name
+        td =t.carrier.name
+        td =t.trucker.full_name
+
+div.links
+  =link_to 'Agregar', new_ticket_path, class:'btn btn-default'

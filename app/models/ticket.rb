@@ -5,6 +5,8 @@ class Ticket < ApplicationRecord
   belongs_to :category
   belongs_to :product
 
+  validates :client, :category, presence: true
+
   def client_name
     client.try(:name)
   end

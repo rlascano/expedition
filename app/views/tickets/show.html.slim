@@ -1,0 +1,17 @@
+header
+  h2 Detalles del Ticket
+
+ul.trucker-detail
+  li <b>ID:</b> #{@ticket.id}
+  li <b>Cliente:</b> #{@ticket.client.name}
+  li <b>Categoria:</b> #{@ticket.category.name}
+  li <b>Producto:</b> #{@ticket.product.name}
+  li <b>Transportista:</b> #{@ticket.carrier.name}
+  li <b>Chofer:</b> #{@ticket.trucker.full_name} 
+
+.links
+  = link_to "Volver", tickets_path, class:'btn btn-default'
+  = link_to "Editar", edit_ticket_path(@ticket), class:'btn btn-default'
+  = link_to "Borrar", ticket_path(@ticket),
+      method: :delete,
+      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'

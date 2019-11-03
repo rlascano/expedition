@@ -1,0 +1,37 @@
+.form
+  = form_with(model: @enterprise, local: true) do |form|
+
+    -if @enterprise.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@enterprise.errors.count, "error")
+          |  prohibited this article from being saved:
+
+        ul
+          -@enterprise.errors.full_messages.each do |msg|
+            li = msg
+
+    ul.flex-form
+      li
+        = form.label :name
+        = form.text_field :name
+      li
+        = form.label :cuit_number
+        = form.text_field :cuit_number
+
+    = form.fields_for :address do |form|
+      ul.flex-form
+        li
+          = form.label :street
+          = form.text_field :street
+        li
+          = form.label :city
+          = form.text_field :city
+        li
+          = form.label :state
+          = form.text_field :state
+        li
+          = form.label :postal_code
+          = form.text_field :postal_code
+
+    = form.submit

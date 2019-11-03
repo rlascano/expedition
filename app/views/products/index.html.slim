@@ -1,0 +1,14 @@
+header
+  h2 Listado de Productos
+table
+  thead
+    tr
+      th Nombre
+      th Categoria
+  tbody
+    - @products.each do |e|
+      tr
+        td = link_to e.name, product_path(e.id)
+        td = e.category.name
+.links
+  = link_to 'Agregar', new_product_path, class:'btn btn-default'
