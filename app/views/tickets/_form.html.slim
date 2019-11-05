@@ -1,4 +1,4 @@
-div.form
+.form
   = form_with(model: @ticket, local: true) do |form|
     - if @ticket.errors.any?
         div#error_explanation
@@ -12,12 +12,6 @@ div.form
       li
         = form.label :client_id
         = form.text_field :client_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)}
-      li
-        = form.label :category_id
-        = form.collection_select(:category_id, Category.all, :id, :name, include_blank: true)
-      li
-        = form.label :product_id
-        = form.grouped_collection_select(:product_id, Category.all, :products, :name, :id, :name, include_blank: true)
       li
         = form.label :carrier_id
         = form.text_field :carrier_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)}

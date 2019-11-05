@@ -4,10 +4,24 @@ header
 ul.trucker-detail
   li <b>ID:</b> #{@ticket.id}
   li <b>Cliente:</b> #{@ticket.client.name}
-  li <b>Categoria:</b> #{@ticket.category.name}
-  li <b>Producto:</b> #{@ticket.product.name}
   li <b>Transportista:</b> #{@ticket.carrier.name}
-  li <b>Chofer:</b> #{@ticket.trucker.full_name} 
+  li <b>Chofer:</b> #{@ticket.trucker.full_name}
+
+table
+  thead
+    tr
+      th Category
+      th Product
+      th Tare
+      th Gross
+      th Net
+  tbody
+    - @ticket.ticket_details.each do |detail|
+      td = detail.category.name
+      td = detail.product.name
+      td = detail.tare
+      td = detail.gross
+      td = detail.net
 
 .links
   = link_to "Volver", tickets_path, class:'btn btn-default'
@@ -15,3 +29,4 @@ ul.trucker-detail
   = link_to "Borrar", ticket_path(@ticket),
       method: :delete,
       data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'
+  = link_to "Add Item", new_ticket_ticket_detail_path(@ticket), class: 'btn btn-default'

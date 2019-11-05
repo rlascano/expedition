@@ -4,9 +4,7 @@ table
   thead
     tr
       th ID
-      th Cliente
-      th Categoria
-      th Producto
+      th Cliente      
       th Transporte
       th Chofer
 
@@ -15,8 +13,6 @@ table
       tr
         td =link_to t.id, ticket_path(t.id)
         td =t.client.name
-        td =t.category.name
-        td =t.product.name
         td =t.carrier.name
         td =t.trucker.full_name
 

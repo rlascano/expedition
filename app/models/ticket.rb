@@ -2,10 +2,9 @@ class Ticket < ApplicationRecord
   belongs_to :client, class_name: 'Enterprise'
   belongs_to :carrier, class_name: 'Enterprise'
   belongs_to :trucker
-  belongs_to :category
-  belongs_to :product
+  has_many :ticket_details, dependent: :destroy
 
-  validates :client, :category, presence: true
+  validates :client, presence: true
 
   def client_name
     client.try(:name)

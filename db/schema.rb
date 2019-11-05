@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_211852) do
+ActiveRecord::Schema.define(version: 2019_11_04_233353) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -44,21 +44,29 @@ ActiveRecord::Schema.define(version: 2019_07_09_211852) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.integer "trucker_id"
+  create_table "ticket_details", force: :cascade do |t|
     t.integer "product_id"
+    t.integer "category_id"
     t.integer "tare"
     t.integer "gross"
+    t.integer "net"
     t.datetime "enter"
     t.datetime "exit"
+    t.integer "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_ticket_details_on_category_id"
+    t.index ["product_id"], name: "index_ticket_details_on_product_id"
+    t.index ["ticket_id"], name: "index_ticket_details_on_ticket_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "trucker_id"
     t.text "observations"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "carrier_id"
     t.integer "client_id"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_tickets_on_category_id"
-    t.index ["product_id"], name: "index_tickets_on_product_id"
     t.index ["trucker_id"], name: "index_tickets_on_trucker_id"
   end
 

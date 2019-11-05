@@ -1,0 +1,29 @@
+.form
+  = form_with(model: [@ticket, @ticket_detail], local: true) do |form|
+    - if @ticket_detail.errors.any?
+        div#error_explanation
+          h2
+            == pluralize(@ticket_detail.errors.count, "error")
+            |  prohibited this article from being saved:
+          ul
+            - @ticket_detail.errors.full_messages.each do |msg|
+              li = msg
+
+    ul.flex-form
+      li
+        = form.label :category_id
+        = form.collection_select :category_id, Category.order(:name), :id, :name
+      li
+        = form.label :product_id
+        = form.grouped_collection_select :product_id, Category.order(:name), :products, :name, :id, :name, include_blank: true
+      li
+        = form.label :tare
+        = form.text_field :tare
+      li
+          = form.label :gross
+          = form.text_field :gross
+      li
+          = form.label :net
+          = form.text_field :net
+      li
+        = form.submit
