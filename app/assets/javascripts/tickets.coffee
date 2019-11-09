@@ -14,3 +14,9 @@ $(document).on "turbolinks:load", ->
     source: $('#ticket_carrier_name').data('autocomplete-source')
   $('#ticket_trucker_name').autocomplete
     source: $('#ticket_trucker_name').data('autocomplete-source')
+
+  $('#ticket_detail_gross').keyup ->
+    tare = $('#ticket_detail_tare').val()
+    gross = $('#ticket_detail_gross').val()
+    net = parseInt(gross) - parseInt(tare)
+    gross = $('#ticket_detail_net').val(net)

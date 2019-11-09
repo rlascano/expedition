@@ -15,13 +15,16 @@ table
       th Tare
       th Gross
       th Net
+      th Edit Detail
   tbody
     - @ticket.ticket_details.each do |detail|
-      td = detail.category.name
-      td = detail.product.name
-      td = detail.tare
-      td = detail.gross
-      td = detail.net
+      tr
+        td = detail.category.name
+        td = detail.product.name
+        td = detail.tare
+        td = detail.gross
+        td = detail.net
+        td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
 
 .links
   = link_to "Volver", tickets_path, class:'btn btn-default'

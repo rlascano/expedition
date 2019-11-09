@@ -17,6 +17,22 @@ class Tickets::TicketDetailsController < ApplicationController
     end
   end
 
+  def edit
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket_detail = TicketDetail.find(params[:id])
+  end
+
+  def update
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket_detail = TicketDetail.find(params[:id])
+
+    if @ticket_detail.update(ticket_detail_params)
+      redirect_to @ticket
+    else
+      render 'edit'
+    end
+  end
+  
 private
 
   def ticket_detail_params

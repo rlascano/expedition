@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'pages/files'
 
   resources :tickets do
-    resources :ticket_details, except: [:index], controller: 'tickets/ticket_details'    
+    resources :ticket_details, controller: 'tickets/ticket_details'
   end
+
   resources :truckers
   resources :enterprises
   resources :categories
