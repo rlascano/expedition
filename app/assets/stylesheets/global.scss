@@ -10,6 +10,10 @@ body {
   //height: 100vh;
 }
 
+.ui-helper-hidden-accessible{
+    display:none !important;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

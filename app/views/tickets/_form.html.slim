@@ -1,7 +1,7 @@
 .form
   = form_with(model: @ticket, local: true) do |form|
     - if @ticket.errors.any?
-        div#error_explanation
+        #error_explanation
           h2
             == pluralize(@ticket.errors.count, "error")
             |  prohibited this article from being saved:

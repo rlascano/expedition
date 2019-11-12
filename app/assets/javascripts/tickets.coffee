@@ -2,11 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
-  products = $('#ticket_detail_product_id').html()
+  updateCombo()
+
   $('#ticket_detail_category_id').change ->
-    category = $('#ticket_detail_category_id :selected').text()
-    options = $(products).filter("optgroup[label='#{category}']").html()
-    $('#ticket_detail_product_id').html(options)
+    updateCombo()
 
   $('#ticket_client_name').autocomplete
     source: $('#ticket_client_name').data('autocomplete-source')
@@ -15,8 +14,17 @@ $(document).on "turbolinks:load", ->
   $('#ticket_trucker_name').autocomplete
     source: $('#ticket_trucker_name').data('autocomplete-source')
 
-  $('#ticket_detail_gross').keyup ->
+  $('#ticket_detail_gross').blur ->
     tare = $('#ticket_detail_tare').val()
     gross = $('#ticket_detail_gross').val()
-    net = parseInt(gross) - parseInt(tare)
-    gross = $('#ticket_detail_net').val(net)
+    if gross == ""
+      net = tare
+    else
+      net = parseInt(gross) - parseInt(tare)
+    $('#ticket_detail_net').val(net)
+
+updateCombo = () ->
+  products = $('#ticket_detail_product_id').html()
+  category = $('#ticket_detail_category_id :selected').text()
+  options = $(products).filter("optgroup[label='#{category}']").html()
+  $('#ticket_detail_product_id').html(options)
