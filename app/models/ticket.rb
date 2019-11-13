@@ -23,7 +23,7 @@ class Ticket < ApplicationRecord
   end
 
   def trucker_name
-    trucker.try(:last_name)
+    trucker.try(:full_name)
   end
 
   def trucker_name=(name)
