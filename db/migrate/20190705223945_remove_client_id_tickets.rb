@@ -1,5 +1,5 @@
 class RemoveClientIdTickets < ActiveRecord::Migration[5.2]
   def change
-    remove_column :tickets, :client_id
+    remove_column :tickets, :client
   end
 end
