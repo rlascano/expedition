@@ -1,0 +1,13 @@
+h2 Listado de Categorias
+
+table
+  thead
+    tr
+      th Nombre
+  tbody
+    - @categories.each do |e|
+      tr
+        td = link_to e.name, category_path(e.id)
+
+.links
+  = link_to 'Agregar', new_category_path, class:'btn btn-default'
