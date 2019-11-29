@@ -10,20 +10,21 @@
               li = msg
 
     ul.flex-form
-      li
+      li data-controller="select"
         = form.label :category_id
-        = form.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true
+        = form.collection_select :category_id, Category.order(:name), :id, :name, {prompt: true}, {data: {action: "select#updateSelect"}}
       li
         = form.label :product_id
         = form.grouped_collection_select :product_id, Category.order(:name), :products, :name, :id, :name, include_blank: true
-      li
-        = form.label :tare
-        = form.text_field :tare
-      li
+      div data-controller="weight"
+        li
+          = form.label :tare
+          = form.text_field :tare, data: {target: "weight.tare"}
+        li
           = form.label :gross
-          = form.text_field :gross
-      li
+          = form.text_field :gross, data: {action: "weight#calculate", target: "weight.gross"}
+        li
           = form.label :net
-          = form.text_field :net
+          = form.text_field :net, data: {target: "weight.net"}
       li
-        = form.submit 
+        = form.submit
