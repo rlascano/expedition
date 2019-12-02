@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  max-width: 970px;
+  max-width: 90vw;
   margin: 0 auto;
   background-color: #FFF;
   padding: 2rem;
@@ -109,15 +109,15 @@ input[type=submit]:hover {
 
 //navbar
 nav {
-  height: 4rem;
+  height: 3rem;
   background-color: $primary-color;
   display: flex;
   align-items: center;
-  padding-left: 2rem;
+  padding-left: 1rem;
   margin-bottom: 1.5rem;
 
   a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color:#FFF;
     font-weight: bold;
     height: 100%;

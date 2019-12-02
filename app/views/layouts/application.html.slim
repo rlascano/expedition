@@ -1,7 +1,9 @@
 doctype html
 html
   head
-    title Expedition
+    title
+      = if content_for?(:title) then yield(:title) + ' - '
+      | Expedición
     = csrf_meta_tags
     = csp_meta_tag
 
@@ -11,4 +13,4 @@ html
   body
     = render 'layouts/navbar'
     .container
-      = yield  
+      = yield
