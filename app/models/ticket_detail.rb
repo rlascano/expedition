@@ -11,7 +11,7 @@ class TicketDetail < ApplicationRecord
       if !tare.nil? and enter.nil?
         self.enter = Time.now
       end
-      if !gross.nil? and exit.nil?
+      if !gross.nil?
         self.exit = Time.now
       end
     end

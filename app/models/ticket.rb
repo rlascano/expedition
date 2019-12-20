@@ -6,6 +6,8 @@ class Ticket < ApplicationRecord
 
   validates :client, presence: true
 
+  before_save :plates_to_uppercase
+
   def client_name
     client.try(:name)
   end
@@ -31,4 +33,12 @@ class Ticket < ApplicationRecord
     first_name = name.split(",")[1].strip
     self.trucker = Trucker.find_by(last_name: last_name, first_name: first_name) if last_name.present?
   end
+
+  private
+
+    def plates_to_uppercase
+      self.truck_plate.upcase!
+      self.trailer_plate.upcase!
+    end
+
 end

@@ -7,6 +7,8 @@ ul.trucker-detail
   li <b>Cliente:</b> #{@ticket.client.name}
   li <b>Transportista:</b> #{@ticket.carrier.name}
   li <b>Chofer:</b> #{@ticket.trucker.full_name}
+  li <b>Patente Camión:</b> #{@ticket.truck_plate}
+  li <b>Patente Semi:</b> #{@ticket.trailer_plate}
 
 table
   thead
@@ -27,8 +29,8 @@ table
         td = detail.tare
         td = detail.gross
         td = detail.net
-        td = detail.enter.strftime("%d/%m/%Y - %H:%m")
-        td = detail.exit.strftime("%d/%m/%Y - %H:%m")
+        td = detail.enter.strftime("%d/%m/%Y - %H:%M") if detail.enter?
+        td = detail.exit.strftime("%d/%m/%Y - %H:%M") if detail.exit?
         td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
 
 .links

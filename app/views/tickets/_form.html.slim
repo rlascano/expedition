@@ -19,4 +19,10 @@
         = form.label :trucker_id
         = form.text_field :trucker_name, data: {autocomplete_source: Trucker.order(:last_name).map(&:full_name)}
       li
+        =form.label :truck_plate
+        =form.text_field :truck_plate
+      li
+        =form.label :trailer_plate
+        =form.text_field :trailer_plate     
+      li
         = form.submit
