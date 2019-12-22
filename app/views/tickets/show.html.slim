@@ -13,14 +13,12 @@ ul.trucker-detail
 table
   thead
     tr
-      th Category
-      th Product
-      th Tare
-      th Gross
-      th Net
-      th Enter
-      th Exit
-      th Edit Detail
+      th Categoria
+      th Producto
+      th Tara
+      th Bruto
+      th Neto
+      th Editar Detalles
   tbody
     - @ticket.ticket_details.each do |detail|
       tr
@@ -29,9 +27,17 @@ table
         td = detail.tare
         td = detail.gross
         td = detail.net
-        td = detail.enter.strftime("%d/%m/%Y - %H:%M") if detail.enter?
-        td = detail.exit.strftime("%d/%m/%Y - %H:%M") if detail.exit?
         td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
+
+h3 Notas:
+
+.comment-list data-controller="observations"
+    ul.comments-list data-target="observations.observationList"
+      = render @ticket.observations
+
+    = form_with model: [@ticket, Observation.new], html: { data: { type: "html", action: "ajax:success->observations#onPostSuccess" } } do |form|
+      = form.text_field :description, data: { target: "observations.description" }
+      = form.submit
 
 .links
   = link_to "Volver", tickets_path, class:'btn btn-default'

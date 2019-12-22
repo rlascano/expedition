@@ -3,6 +3,7 @@ class Ticket < ApplicationRecord
   belongs_to :carrier, class_name: 'Enterprise'
   belongs_to :trucker
   has_many :ticket_details, dependent: :destroy
+  has_many :observations, dependent: :destroy
 
   validates :client, presence: true
 

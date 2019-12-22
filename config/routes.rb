@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :tickets do
     resources :ticket_details, controller: 'tickets/ticket_details'
+    resources :observations
   end
 
   resources :truckers

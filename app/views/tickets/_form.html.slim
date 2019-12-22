@@ -1,5 +1,5 @@
-.form data-controller="complete"
-  = form_with(model: @ticket, local: true) do |form|
+.form
+  = form_with(model: @ticket, html: {novalidate: true}, data: {controller: "complete uppercase", target: "complete.form", action: "ajax:beforeSend->complete#submitForm"}) do |form|
     - if @ticket.errors.any?
         #error_explanation
           h2
@@ -20,9 +20,9 @@
         = form.text_field :trucker_name, data: {autocomplete_source: Trucker.order(:last_name).map(&:full_name)}
       li
         =form.label :truck_plate
-        =form.text_field :truck_plate
+        =form.text_field :truck_plate, required: true, data: {target: "uppercase.plate", action: "input->uppercase#toUppercase"}
       li
         =form.label :trailer_plate
-        =form.text_field :trailer_plate     
+        =form.text_field :trailer_plate, required: true, data: {target: "uppercase.plate", action: "input->uppercase#toUppercase"}
       li
         = form.submit
