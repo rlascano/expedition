@@ -5,12 +5,13 @@
     }
 
     connect() {
-      console.log("uppercase")
-      this.toUppercase()
+
     }
 
     toUppercase() {
-      this.plateTarget.value = this.plateTarget.value.toUpperCase()
+      this.plateTargets.forEach((text) => {
+        text.value = text.value.toUpperCase()
+      })
     }
 
   })
