@@ -1,5 +1,18 @@
-header
-  h2 Listado de Empresas
+-title 'Empresas'
+
+.links
+  ul
+    li
+      i.fas.fa-home
+      = link_to 'inicio', root_path
+    li
+      i.fas.fa-file
+      = link_to 'nuevo', new_enterprise_path
+    li
+      i.fas.fa-backward
+      = link_to  'volver', pages_files_path
+
+h2 Listado de Empresas
 
 table
   thead
@@ -11,6 +24,3 @@ table
       tr
         td = link_to e.name, enterprise_path(e.id)
         td = e.cuit_number
-
-.links
-  = link_to 'Agregar', new_enterprise_path, class:'btn btn-default'

@@ -1,5 +1,11 @@
+-title "Editar Categoria"
+
+.links
+  ul
+    li
+      i.fas.fa-times
+      = link_to "cancelar", categories_path
+
 h2 Editar Categoria
 
 = render 'form'
-.links
-  = link_to "Cancelar", categories_path, class:'btn btn-default' 

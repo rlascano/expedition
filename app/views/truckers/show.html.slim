@@ -1,15 +1,28 @@
 - title @trucker.full_name
 
+.links
+  ul
+    li
+      i.fas.fa-home
+      = link_to "inicio", root_path
+    li
+      i.fas.fa-backward
+      = link_to "volver", truckers_path
+    li
+      i.fas.fa-pen
+      = link_to "editar", edit_trucker_path(@trucker)
+    li
+      i.fas.fa-trash
+      = link_to "borrar", trucker_path(@trucker),
+        method: :delete,
+        data: {confirm: "¿Esta seguro?" }
+
 h2 Detalles del Camionero
 
-ul.trucker-detail
-  li <b> Nombre: </b> #{@trucker.full_name}
-  li <b> Documento: </b> #{@trucker.document}
-  li <b> Vigencia: </b> #{@trucker.carnet_expiration_date.strftime('%d/%m/%Y')}
-
-div.links
-  =link_to "Volver", truckers_path, class:'btn btn-default'
-  =link_to "Editar", edit_trucker_path(@trucker), class:'btn btn-default'
-  =link_to "Borrar", trucker_path(@trucker),
-      method: :delete,
-      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'
+dl
+  dt Nombre
+  dd #{@trucker.full_name}
+  dt Documento
+  dd #{@trucker.document}
+  dt Vigencia
+  dd #{@trucker.carnet_expiration_date.strftime('%d/%m/%Y')}

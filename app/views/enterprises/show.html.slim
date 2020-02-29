@@ -1,16 +1,29 @@
-header
-  h2 Detalles del Empresa
+-title @enterprise.name
 
-ul.trucker-detail
-  li <b>Nombre:</b> #{@enterprise.name}
-  li <b>Cuit: </b> #{@enterprise.cuit_number}
-  li <b>Provincia: </b> #{@enterprise.address.state}
-  li <b>Calle: </b> #{@enterprise.address.street}
-  li <b>Ciudad: </b> #{@enterprise.address.city}
-  li <b>Código Postal: </b> #{@enterprise.address.postal_code}
 .links
-  = link_to "Volver", enterprises_path, class:'btn btn-default'
-  = link_to "Editar", edit_enterprise_path(@enterprise), class:'btn btn-default'
-  = link_to "Borrar", enterprise_path(@enterprise),
-      method: :delete,
-      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'
+  ul
+    li
+      i.fas.fa-backward
+      = link_to "volver", enterprises_path
+    li
+      i.fas.fa-pen
+      = link_to "editar", edit_enterprise_path(@enterprise)
+    li
+      i.fas.fa-trash
+      = link_to "borrar", enterprise_path(@enterprise),
+        method: :delete,
+        data: {confirm: "¿Esta seguro?" }
+
+h2 #{@enterprise.name}
+
+dl
+  dt Cuit:
+  dd #{@enterprise.cuit_number}
+  dt Provincia:
+  dd #{@enterprise.address.state}
+  dt Calle:
+  dd #{@enterprise.address.street}
+  dt Ciudad:
+  dd #{@enterprise.address.city}
+  dt Código Postal:
+  dd #{@enterprise.address.postal_code}

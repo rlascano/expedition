@@ -1,5 +1,7 @@
-header
-  h2 Editar Empresa
-= render 'form'
 .links
-  = link_to "Cancelar", enterprises_path, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times   
+      = link_to "Cancelar", enterprises_path
+h2 Editar Empresa
+= render 'form'

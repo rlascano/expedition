@@ -1,7 +1,16 @@
 -title 'Tickets'
 
-header
-  h2 Listado de Tickets
+.links
+  ul
+    li
+      i.fas.fa-file
+      =link_to 'agregar', new_ticket_path
+    li
+      i.fas.fa-backward
+      =link_to 'volver', root_path
+
+h2 Listado de Tickets
+
 table
   thead
     tr
@@ -17,6 +26,3 @@ table
         td =t.client.name
         td =t.carrier.name
         td =t.trucker.full_name
-
-div.links
-  =link_to 'Agregar', new_ticket_path, class:'btn btn-default'

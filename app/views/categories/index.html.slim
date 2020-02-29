@@ -1,13 +1,23 @@
+-title 'Categorias'
+
+.links
+  ul
+    li
+      i.fas.fa-file
+      = link_to 'nuevo', new_category_path
+    li
+      i.fas.fa-backward
+      = link_to 'volver', pages_files_path
+
 h2 Listado de Categorias
 
 table
   thead
     tr
+      th ID
       th Nombre
   tbody
-    - @categories.each do |e|
-      tr
-        td = link_to e.name, category_path(e.id)
-
-.links
-  = link_to 'Agregar', new_category_path, class:'btn btn-default'
+  - @categories.each do |e|
+    tr
+      td = link_to e.id, category_path(e.id)
+      td = e.name

@@ -1,5 +1,11 @@
-header
-  h2 Agregar Producto
-= render 'form'
+-title "Producto nuevo"
+
 .links
-  = link_to "Cancelar", products_path, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times
+      = link_to "Cancelar", products_path
+
+h2 Agregar Producto
+
+= render 'form'

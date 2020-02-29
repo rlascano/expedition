@@ -1,7 +1,19 @@
 - title 'Choferes'
 
+.links
+  ul
+    li
+      i.fas.fa-home
+      = link_to 'inicio', root_path
+    li
+      i.far.fa-file
+      = link_to 'nuevo', new_trucker_path
+    li
+      i.fas.fa-backward
+      = link_to 'volver', pages_files_path
+
 header
-  h2 Listado de Camioneros
+  h2 Choferes
 
 table
   thead
@@ -15,6 +27,3 @@ table
         td = link_to t.full_name, trucker_path(t.id)
         td = t.document
         td = t.carnet_expiration_date.strftime('%d/%m/%Y')
-
-.links
-  = link_to 'Agregar', new_trucker_path, class:'btn btn-default'

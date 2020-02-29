@@ -1,10 +1,19 @@
-h2 Detalles de la Categoria
-ul.trucker-detail
-  li <b>Nombre:</b> #{@category.name}
-
 .links
-  = link_to "Volver", categories_path, class:'btn btn-default'
-  = link_to "Editar", edit_category_path(@category), class:'btn btn-default'
-  = link_to "Borrar", category_path(@category),
-      method: :delete,
-      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'
+  ul
+    li
+      i.fas.fa-backward
+      = link_to "volver", categories_path
+    li
+      i.fas.fa-pen
+      = link_to "editar", edit_category_path(@category)
+    li
+      i.fas.fa-trash
+      = link_to "borrar", category_path(@category),
+          method: :delete,
+          data: {confirm: "¿Esta seguro?" }
+
+h2 Detalles de la Categoria
+
+dl
+  dt Nombre:
+  dd #{@category.name}

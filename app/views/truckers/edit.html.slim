@@ -1,5 +1,10 @@
 -title 'Editar Chofer'
 
-h2 Editar camionero
+.links
+  ul
+    li
+      i.fas.fa-times
+      = link_to "cancelar", truckers_path
+
+h2 Editar Chofer
 = render 'form'
-= link_to 'Cancelar', truckers_path

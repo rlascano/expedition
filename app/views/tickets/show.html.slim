@@ -1,48 +1,70 @@
 -title "Ticket #{@ticket.id}"
 
-h2 Detalles del Ticket
-
-ul.trucker-detail
-  li <b>ID:</b> #{@ticket.id}
-  li <b>Cliente:</b> #{@ticket.client.name}
-  li <b>Transportista:</b> #{@ticket.carrier.name}
-  li <b>Chofer:</b> #{@ticket.trucker.full_name}
-  li <b>Patente Camión:</b> #{@ticket.truck_plate}
-  li <b>Patente Semi:</b> #{@ticket.trailer_plate}
-
-table
-  thead
-    tr
-      th Categoria
-      th Producto
-      th Tara
-      th Bruto
-      th Neto
-      th Editar Detalles
-  tbody
-    - @ticket.ticket_details.each do |detail|
-      tr
-        td = detail.category.name
-        td = detail.product.name
-        td = detail.tare
-        td = detail.gross
-        td = detail.net
-        td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
-
-h3 Notas:
-
-.comment-list data-controller="observations"
-    ul.comments-list data-target="observations.observationList"
-      = render @ticket.observations
-
-    = form_with model: [@ticket, Observation.new], html: { data: { type: "html", action: "ajax:success->observations#onPostSuccess" } } do |form|
-      = form.text_field :description, data: { target: "observations.description" }
-      = form.submit
-
 .links
-  = link_to "Volver", tickets_path, class:'btn btn-default'
-  = link_to "Editar", edit_ticket_path(@ticket), class:'btn btn-default'
-  = link_to "Borrar", ticket_path(@ticket),
-      method: :delete,
-      data: {confirm: "¿Esta seguro?" }, class:'btn btn-danger'
-  = link_to "Add Item", new_ticket_ticket_detail_path(@ticket), class: 'btn btn-default'
+  ul
+    li
+        i.fas.fa-backward
+        = link_to "volver", tickets_path
+    li
+        i.fas.fa-pen
+        = link_to "editar", edit_ticket_path(@ticket)
+    li
+        i.fas.fa-trash
+        = link_to "borrar", ticket_path(@ticket),
+          method: :delete,
+          data: {confirm: "¿Esta seguro?" }
+
+h2 Ticket #{@ticket.id}
+
+.ticket-maestro
+  dl
+    dt Cliente:
+    dd #{@ticket.client.name}
+    dt Transportista:
+    dd #{@ticket.carrier.name}
+    dt Chofer:
+    dd #{@ticket.trucker.full_name}
+    dt Patente Camión:
+    dd #{@ticket.truck_plate}
+    dt Patente Semi:
+    dd #{@ticket.trailer_plate}
+
+.ticket-detalle
+  .ticket-detalle-title
+    h3 Items
+    = link_to "Nuevo", new_ticket_ticket_detail_path(@ticket), class: 'btn btn-default'
+
+
+  table
+    thead
+      tr
+        th Categoria
+        th Producto
+        th Tara
+        th Bruto
+        th Neto
+        th Editar
+    tbody
+      - @ticket.ticket_details.each do |detail|
+        tr
+          td = detail.category.name
+          td = detail.product.name
+          td = detail.tare
+          td = detail.gross
+          td = detail.net
+          td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
+
+.notas
+  h3.notas-title Notas:
+
+  .comment-list data-controller="observations"
+      ol.comments-list data-target="observations.observationList"
+        = render @ticket.observations
+
+  = form_with model: [@ticket, Observation.new], html: { data: { type: "html", action: "ajax:success->observations#onPostSuccess" } } do |form|
+    ul.flex-form
+      li
+        = form.label :description
+        = form.text_field :description, data: { target: "observations.description" }
+      li
+        = form.submit

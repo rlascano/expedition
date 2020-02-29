@@ -1,5 +1,10 @@
-header
-  h2 Editar Ticket
-= render 'form'
+-title "Editar Ticket #{@ticket.id}"
+
 .links
-  = link_to "Cancelar", tickets_path, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times
+      = link_to "Cancelar", tickets_path
+
+h2 Editar Ticket
+= render 'form'

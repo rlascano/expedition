@@ -1,6 +1,10 @@
 -title 'Nuevo Chofer'
 
+.links
+  ul
+    li
+      i.fas.fa-times
+      = link_to "cancelar", truckers_path
+
 h2 Nuevo Chofer
 = render 'form'
-div.links
-  = link_to "Cancelar", truckers_path, class:'btn btn-default'

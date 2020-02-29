@@ -1,2 +1,6 @@
 li
   = observation.description
+  i.fas.fa-trash
+  = link_to "borrar", ticket_observation_path(@ticket, observation),
+    method: :delete,
+    data: {confirm: "¿Esta seguro?" }

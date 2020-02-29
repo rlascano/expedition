@@ -1,5 +1,10 @@
+-title "Categoria Nueva"
 
-h2 Agregar Categoria
-= render 'form'
 .links
-  = link_to "Cancelar", enterprises_path, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times
+      = link_to "cancelar", categories_path
+
+h2 Categoria Nueva
+= render 'form'

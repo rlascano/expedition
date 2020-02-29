@@ -1,5 +1,16 @@
-header
-  h2 Listado de Productos
+-title 'Productos'
+
+.links
+  ul
+    li
+      i.fas.fa-file
+      = link_to 'nuevo', new_product_path
+    li
+      i.fas.fa-backward
+      = link_to 'volver', pages_files_path
+
+h2 Listado de Productos      
+
 table
   thead
     tr
@@ -10,5 +21,3 @@ table
       tr
         td = link_to e.name, product_path(e.id)
         td = e.category.name
-.links
-  = link_to 'Agregar', new_product_path, class:'btn btn-default'

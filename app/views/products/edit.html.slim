@@ -1,5 +1,10 @@
-header
-  h2 Editar Producto
-= render 'form'
+-title "Editar #{@product.name}"
+
 .links
-  = link_to "Cancelar", products_path, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times
+      = link_to "cancelar", products_path
+
+h2 Editar Producto
+= render 'form'

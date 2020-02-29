@@ -1,4 +1,10 @@
-h2 Edit detail
-=render 'form'
+-title "Editar Detalles Ticket #{@ticket.id}"
+
 .links
-  = link_to "Cancelar", @ticket, class:'btn btn-default'
+  ul
+    li
+      i.fas.fa-times
+      = link_to "Cancelar", @ticket
+
+h2 Editar Detalles del Ticket #{@ticket.id}
+=render 'form'
