@@ -1,5 +1,5 @@
 .form
-  = form_with(model: @ticket, html: {novalidate: true}, data: {controller: "complete uppercase", target: "complete.form", action: "ajax:beforeSend->complete#submitForm"}) do |form|
+  = form_with(model: @ticket, html: {novalidate: true}, data: {controller: "complete uppercase select weight", target: "complete.form", action: "ajax:beforeSend->complete#submitForm"}) do |form|
     - if @ticket.errors.any?
         #error_explanation
           h2
@@ -12,6 +12,23 @@
       li
         = form.label :client_id
         = form.text_field :client_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)}
+
+        = form.fields_for :ticket_detail do |form|
+          li
+            = form.label :category_id
+            = form.collection_select :category_id, Category.order(:name), :id, :name, {prompt: true}, {data: {action: "select#updateSelect"}}
+          li
+            = form.label :product_id
+            = form.grouped_collection_select :product_id, Category.order(:name), :products, :name, :id, :name, include_blank: true
+          li
+            = form.label :tare
+            = form.text_field :tare, data: {target: "weight.tare"}
+          li
+            = form.label :gross
+            = form.text_field :gross, data: {action: "weight#calculate", target: "weight.gross"}
+          li
+            = form.label :net
+            = form.text_field :net, data: {target: "weight.net"}
       li
         = form.label :carrier_id
         = form.text_field :carrier_name, data: {autocomplete_source: Enterprise.order(:name).map(&:name)}

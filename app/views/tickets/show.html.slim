@@ -54,10 +54,10 @@ h2 Ticket #{@ticket.id}
           td = detail.net
           td = link_to "Editar", edit_ticket_ticket_detail_path(@ticket, detail)
 
-.notas
+.notas data-controller="observations"
   h3.notas-title Notas:
 
-  .comment-list data-controller="observations"
+  .comment-list
       ol.comments-list data-target="observations.observationList"
         = render @ticket.observations
 
